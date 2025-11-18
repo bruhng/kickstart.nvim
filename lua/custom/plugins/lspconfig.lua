@@ -101,10 +101,13 @@ return {
           },
         },
       },
+      jdtls = {},
     }
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
+      'google-java-format',
+      'checkstyle',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {

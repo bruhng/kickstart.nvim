@@ -30,6 +30,7 @@ return {
       go = { 'gofmt' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      java = { 'google-java-format' },
     },
   },
 }
