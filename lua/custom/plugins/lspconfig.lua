@@ -39,6 +39,9 @@ return {
             group = highlight_augroup,
             callback = vim.lsp.buf.document_highlight,
           })
+          map('<leader>e', function()
+            vim.diagnostic.open_float(nil, { border = 'rounded' })
+          end, 'Open Diagnostic Float')
           vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
             buffer = event.buf,
             group = highlight_augroup,
