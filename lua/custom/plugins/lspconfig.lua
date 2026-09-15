@@ -1,7 +1,22 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    { 'mason-org/mason.nvim', opts = {} },
+    {
+      'mason-org/mason.nvim',
+      opts = {
+        -- Extra registry provides the `roslyn-nightly` package, which installs
+        -- a working, up-to-date `roslyn-language-server` binary. NOTE: the
+        -- default registry's package literally named `roslyn-language-server`
+        -- is sourced from nuget.org and is currently broken there (missing
+        -- DotnetToolSettings.xml); Crashdummyy's `roslyn` package release
+        -- asset was also stale/missing at time of writing, so we pin to
+        -- `roslyn-nightly` instead (see ensure_installed below).
+        registries = {
+          'github:Crashdummyy/mason-registry',
+          'github:mason-org/mason-registry',
+        },
+      },
+    },
     'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
@@ -104,6 +119,8 @@ return {
       'stylua',
       'google-java-format',
       'checkstyle',
+      'roslyn-nightly',
+      'csharpier',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {
