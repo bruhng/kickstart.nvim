@@ -28,8 +28,10 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       go = { 'gofmt' },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'prettier' },
+      typescript = { 'prettier' },
+      javascriptreact = { 'prettier' },
+      typescriptreact = { 'prettier' },
       java = { 'google-java-format' },
       cs = { 'csharpier' },
     },

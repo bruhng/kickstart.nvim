@@ -2,8 +2,25 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   config = function()
-    local parsers = { 'bash', 'c', 'c_sharp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim',
-      'vimdoc', 'xml' }
+    local parsers = {
+      'bash',
+      'c',
+      'c_sharp',
+      'diff',
+      'html',
+      'javascript',
+      'jsdoc',
+      'lua',
+      'luadoc',
+      'markdown',
+      'markdown_inline',
+      'query',
+      'tsx',
+      'typescript',
+      'vim',
+      'vimdoc',
+      'xml',
+    }
     pcall(require('nvim-treesitter').install, parsers)
 
     local group = vim.api.nvim_create_augroup('treesitter-minimal', { clear = true })
