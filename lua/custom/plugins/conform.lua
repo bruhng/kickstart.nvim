@@ -15,7 +15,7 @@ return {
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_filetypes = { c = true, cpp = true, cs = true }
       if disable_filetypes[vim.bo[bufnr].filetype] then
         return nil
       else
@@ -33,7 +33,6 @@ return {
       javascriptreact = { 'prettier' },
       typescriptreact = { 'prettier' },
       java = { 'google-java-format' },
-      cs = { 'csharpier' },
     },
   },
 }

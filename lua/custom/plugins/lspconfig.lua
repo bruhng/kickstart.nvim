@@ -121,7 +121,6 @@ return {
       'google-java-format',
       'checkstyle',
       'roslyn-nightly',
-      'csharpier',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {
