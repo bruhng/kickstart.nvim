@@ -12,9 +12,25 @@ return {
   lazy = false,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    {
+      '<leader>tn',
+      function()
+        require('custom.shorten').toggle()
+      end,
+      desc = '[t]oggle short [n]amespace dirs',
+    },
   },
   opts = {
     filesystem = {
+      components = {
+        name = function(config, node, state)
+          local result = require('neo-tree.sources.common.components').name(config, node, state)
+          if node.type == 'directory' and type(result) == 'table' and result.text then
+            result.text = require('custom.shorten').shorten_dir(result.text)
+          end
+          return result
+        end,
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',

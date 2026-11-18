@@ -15,6 +15,11 @@ return {
   },
   config = function()
     require('telescope').setup {
+      defaults = {
+        path_display = function(_, path)
+          return require('custom.shorten').shorten_path_dirs(path)
+        end,
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
